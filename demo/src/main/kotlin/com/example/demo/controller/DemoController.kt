@@ -10,7 +10,7 @@ class DemoController {
 
     @GetMapping("/test")
     fun test(): String {
-        val result = "Hello World!!!"
+        val result = "Hello World!!!!"
         return result
     }
 }
