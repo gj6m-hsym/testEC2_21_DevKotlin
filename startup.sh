@@ -14,7 +14,7 @@ fi
 # back end
 if [ -a /home/appdata/demo-0.0.1-SNAPSHOT.jar ]; then
     java -jar /home/appdata/demo-0.0.1-SNAPSHOT.jar &
-    sleep 120
+    sleep 300
     curl http://localhost:8080 > /dev/null 2>&1
     if [ "$?" != "0" ]; then
         echo not running: 8080
