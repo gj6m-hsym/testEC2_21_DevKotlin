@@ -85,11 +85,14 @@ RUN mkdir -p /var/lib/nginx/tmp /var/log/nginx \
     && chmod -R 755 /var/lib/nginx /var/log/nginx
     
 # ENTRYPOINT shell
-RUN echo "#!/bin/bash" > /usr/local/testStartup.sh
-RUN echo "java -jar /home/appdata/demo-0.0.1-SNAPSHOT.jar &" >> /usr/local/testStartup.sh
-RUN echo "echo password | sudo -S /usr/sbin/nginx -g 'daemon off;' -c /etc/nginx/nginx.conf" >> /usr/local/testStartup.sh
-RUN echo "exit 0" >> /usr/local/testStartup.sh
-RUN chmod 755 /usr/local/testStartup.sh
+ADD startup.sh /home/appdata/
+RUN chown appdata:appdata /home/appdata/startup.sh
+RUN chmod 755 /home/appdata/startup.sh
+# RUN echo "#!/bin/bash" > /usr/local/testStartup.sh
+# RUN echo "java -jar /home/appdata/demo-0.0.1-SNAPSHOT.jar &" >> /usr/local/testStartup.sh
+# RUN echo "echo password | sudo -S /usr/sbin/nginx -g 'daemon off;' -c /etc/nginx/nginx.conf" >> /usr/local/testStartup.sh
+# RUN echo "exit 0" >> /usr/local/testStartup.sh
+# RUN chmod 755 /usr/local/testStartup.sh
 
 USER appdata
 WORKDIR /home/appdata
@@ -100,6 +103,7 @@ ENV JAVA_HOME=/usr/lib/jvm/java-17-amazon-corretto
 
 EXPOSE 80 8080
 
-ENTRYPOINT [ "/usr/bin/sh", "-c", "/usr/local/testStartup.sh" ]
+# ENTRYPOINT [ "/usr/bin/sh", "-c", "/usr/local/testStartup.sh" ]
+ENTRYPOINT [ "/usr/bin/sh", "-c", "/home/appdata/startup.sh" ]
 
 ENV DEVCONTAINER=true
