@@ -1,5 +1,5 @@
 # kotlin
-FROM amazonlinux:2023
+FROM public.ecr.aws/amazonlinux/amazonlinux:2023
 
 # 開発言語に依存しない共通のプログラムの準備
 # （Git for Windows にも入っているようなツールと useradd のための shadow-utils を入れておく）
