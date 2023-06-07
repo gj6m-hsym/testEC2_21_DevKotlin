@@ -85,7 +85,7 @@ RUN mkdir -p /var/lib/nginx/tmp /var/log/nginx \
     && chmod -R 755 /var/lib/nginx /var/log/nginx
     
 # ENTRYPOINT shell
-ADD startup.sh /home/appdata/
+# ADD startup.sh /home/appdata/
 RUN chown appdata:appdata /home/appdata/startup.sh
 RUN chmod 755 /home/appdata/startup.sh
 # RUN echo "#!/bin/bash" > /usr/local/testStartup.sh
