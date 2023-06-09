@@ -43,6 +43,10 @@ dependencies {
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.springframework.security:spring-security-test")
+    implementation("aws.sdk.kotlin:sns-jvm:0.21.3-beta")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.9.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
+    implementation("aws.sdk.kotlin:lambda-jvm:0.21.3-beta")
 }
 
 dependencyManagement {
