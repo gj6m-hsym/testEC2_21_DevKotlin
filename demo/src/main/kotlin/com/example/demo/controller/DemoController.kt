@@ -8,9 +8,9 @@ package com.example.demo.controller
 // @RequestMapping("/demo")
 class DemoController {
 
-    @GetMapping("/test")
-    fun test(): String {
-        val result = "Hello World!!!!"
-        return result
-    }
+    // @GetMapping("/test")
+    // fun test(): String {
+    //     val result = "Hello World!!!!"
+    //     return result
+    // }
 }
